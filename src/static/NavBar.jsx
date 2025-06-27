@@ -2,6 +2,7 @@ import React from "react";
 import PiggyBtn from "../components/reusable/PiggyBtn";
 import { LuChevronDown } from "react-icons/lu";
 import { Link, useLocation } from "react-router-dom";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 const NavBar = () => {
   const location = useLocation(); // ✅ Correct hook
@@ -29,7 +30,7 @@ const NavBar = () => {
               <img src="./piggylogo.svg" alt="piggyLogo" />
             </div>
           </Link>
-          <div className="flex items-center gap-[30px]">
+          <div className="flex items-center gap-[30px] max-tablet:hidden">
             <Link to="/">
               <nav className="flex items-center">
                 <span>Save</span>
@@ -58,13 +59,16 @@ const NavBar = () => {
             </Link>
           </div>
         </section>
-        <section className="flex items-center gap-2">
+        <section className="flex items-center gap-2 max-tablet:hidden">
           <PiggyBtn label="Sign in" borderStyle="#122231" />
           <PiggyBtn
             label="Create free account"
             bg="#122231"
             textColor="#ffffff"
           />
+        </section>
+        <section className="hidden max-tablet:block">
+          <RxHamburgerMenu size={35} />
         </section>
       </div>
     </main>
